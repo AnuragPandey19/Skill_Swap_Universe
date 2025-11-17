@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Matching - SkillSwap Universe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>🌍 SkillSwap</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="matching.html" class="nav-item active">
+                <span class="nav-icon">🤖</span>
+                <span>AI Matching</span>
+            </a>
+            <a href="clubs.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Clubs</span>
+            </a>
+            <a href="stage.html" class="nav-item">
+                <span class="nav-icon">🎤</span>
+                <span>Live Stage</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="coin-balance">
+                <span class="coin-icon">🪙</span>
+                <span class="coin-amount" id="sidebarCoins">250</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1>🤖 AI Smart Matching</h1>
+            </div>
+            <div class="topbar-right">
+                <button class="notification-btn">
+                    <span class="notification-icon">🔔</span>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=6366f1&color=fff" alt="User">
+                </div>
+            </div>
+        </header>
+
+        <!-- Matching Content -->
+        <div class="matching-container">
+            <!-- Filters Section -->
+            <div class="matching-filters">
+                <h3>🎯 Filter Matches</h3>
+                <div class="filter-group">
+                    <label>I want to learn:</label>
+                    <select id="filterLearn" onchange="applyFilters()">
+                        <option value="">All Skills</option>
+                        <option value="music">Music</option>
+                        <option value="tech">Technology</option>
+                        <option value="language">Languages</option>
+                        <option value="art">Art & Design</option>
+                        <option value="fitness">Fitness</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>I can teach:</label>
+                    <select id="filterTeach" onchange="applyFilters()">
+                        <option value="">All Skills</option>
+                        <option value="music">Music</option>
+                        <option value="tech">Technology</option>
+                        <option value="language">Languages</option>
+                        <option value="art">Art & Design</option>
+                        <option value="fitness">Fitness</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location:</label>
+                    <select id="filterLocation" onchange="applyFilters()">
+                        <option value="">Anywhere</option>
+                        <option value="local">Local (10 km)</option>
+                        <option value="online">Online Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Availability:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="weekday"> Weekdays</label>
+                        <label><input type="checkbox" value="weekend"> Weekends</label>
+                        <label><input type="checkbox" value="evening"> Evenings</label>
+                    </div>
+                </div>
+                <button class="btn-primary btn-full" onclick="findMatches()">
+                    🔍 Find Matches
+                </button>
+            </div>
+
+            <!-- Matching Cards Section -->
+            <div class="matching-cards">
+                <div class="matching-header">
+                    <h3>✨ Recommended Matches</h3>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="swipe" onclick="switchView('swipe')">
+                            <span>💫</span> Swipe
+                        </button>
+                        <button class="view-btn" data-view="grid" onclick="switchView('grid')">
+                            <span>📋</span> List
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Swipe View -->
+                <div id="swipeView" class="swipe-container">
+                    <div class="match-card-swipe" id="currentCard">
+                        <div class="match-image">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Kim&background=ec4899&color=fff&size=400" alt="Sarah">
+                            <div class="match-score">95% Match</div>
+                        </div>
+                        <div class="match-content">
+                            <h2>Sarah Kim, 22</h2>
+                            <div class="match-location">📍 New Delhi • Online Available</div>
+                            <div class="match-skills-section">
+                                <div class="skill-swap-row">
+                                    <div class="skill-swap-item teach-skill">
+                                        <div class="skill-label">Can Teach</div>
+                                        <div class="skill-list">
+                                            <span class="skill-pill">Spanish 🇪🇸</span>
+                                            <span class="skill-pill">Salsa Dancing 💃</span>
+                                        </div>
+                                    </div>
+                                    <div class="swap-arrow">⇄</div>
+                                    <div class="skill-swap-item learn-skill">
+                                        <div class="skill-label">Wants to Learn</div>
+                                        <div class="skill-list">
+                                            <span class="skill-pill">Guitar 🎸</span>
+                                            <span class="skill-pill">Photography 📸</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="match-badges">
+                                <span class="badge">⚡ Quick Responder</span>
+                                <span class="badge">🏆 5.0 Rating</span>
+                                <span class="badge">🔥 15 Swaps</span>
+                            </div>
+                            <div class="match-bio">
+                                "Language enthusiast and dance lover! Looking to learn guitar and improve my photography skills. Let's swap and grow together! 🌟"
+                            </div>
+                        </div>
+                        <div class="swipe-actions">
+                            <button class="swipe-btn skip" onclick="skipMatch()">
+                                <span>✕</span>
+                            </button>
+                            <button class="swipe-btn super" onclick="superLike()">
+                                <span>⭐</span>
+                            </button>
+                            <button class="swipe-btn like" onclick="likeMatch()">
+                                <span>❤️</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid View -->
+                <div id="gridView" class="grid-container" style="display: none;">
+                    <div class="match-grid">
+                        <div class="match-card-grid">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Kim&background=ec4899&color=fff" class="grid-avatar">
+                            <div class="grid-content">
+                                <h4>Sarah Kim</h4>
+                                <div class="grid-match-score">95% Match</div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small teach">Spanish</span>
+                                    <span class="skill-tag-small teach">Dance</span>
+                                </div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small learn">Guitar</span>
+                                    <span class="skill-tag-small learn">Photo</span>
+                                </div>
+                            </div>
+                            <button class="btn-connect" onclick="connectUser('Sarah Kim')">Connect</button>
+                        </div>
+
+                        <div class="match-card-grid">
+                            <img src="https://ui-avatars.com/api/?name=Mike+Chen&background=10b981&color=fff" class="grid-avatar">
+                            <div class="grid-content">
+                                <h4>Mike Chen</h4>
+                                <div class="grid-match-score">88% Match</div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small teach">UI Design</span>
+                                    <span class="skill-tag-small teach">Figma</span>
+                                </div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small learn">Photography</span>
+                                    <span class="skill-tag-small learn">Video</span>
+                                </div>
+                            </div>
+                            <button class="btn-connect" onclick="connectUser('Mike Chen')">Connect</button>
+                        </div>
+
+                        <div class="match-card-grid">
+                            <img src="https://ui-avatars.com/api/?name=Emma+Wilson&background=f59e0b&color=fff" class="grid-avatar">
+                            <div class="grid-content">
+                                <h4>Emma Wilson</h4>
+                                <div class="grid-match-score">92% Match</div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small teach">Piano</span>
+                                    <span class="skill-tag-small teach">Theory</span>
+                                </div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small learn">JavaScript</span>
+                                    <span class="skill-tag-small learn">React</span>
+                                </div>
+                            </div>
+                            <button class="btn-connect" onclick="connectUser('Emma Wilson')">Connect</button>
+                        </div>
+
+                        <div class="match-card-grid">
+                            <img src="https://ui-avatars.com/api/?name=Raj+Patel&background=8b5cf6&color=fff" class="grid-avatar">
+                            <div class="grid-content">
+                                <h4>Raj Patel</h4>
+                                <div class="grid-match-score">85% Match</div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small teach">Python</span>
+                                    <span class="skill-tag-small teach">ML</span>
+                                </div>
+                                <div class="grid-skills">
+                                    <span class="skill-tag-small learn">Guitar</span>
+                                    <span class="skill-tag-small learn">Spanish</span>
+                                </div>
+                            </div>
+                            <button class="btn-connect" onclick="connectUser('Raj Patel')">Connect</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Match Modal -->
+    <div class="modal" id="matchModal">
+        <div class="modal-content celebration">
+            <div class="celebration-icon">🎉</div>
+            <h2>It's a Match!</h2>
+            <p>You and <span id="matchedUser"></span> can now start swapping skills!</p>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="sendMessage()">Send Message</button>
+                <button class="btn-secondary" onclick="closeModal()">Continue Matching</button>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="matching.js"></script>
+</body>
+</html>

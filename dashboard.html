@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SkillSwap Universe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>🌍 SkillSwap</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="matching.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span>AI Matching</span>
+            </a>
+            <a href="clubs.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Clubs</span>
+            </a>
+            <a href="stage.html" class="nav-item">
+                <span class="nav-icon">🎤</span>
+                <span>Live Stage</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span>Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="coin-balance">
+                <span class="coin-icon">🪙</span>
+                <span class="coin-amount" id="sidebarCoins">250</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1>Welcome back, <span id="userName">Alex</span>! 👋</h1>
+            </div>
+            <div class="topbar-right">
+                <button class="notification-btn" onclick="toggleNotifications()">
+                    <span class="notification-icon">🔔</span>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=6366f1&color=fff" alt="User">
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">🪙</div>
+                <div class="stat-details">
+                    <div class="stat-value" id="totalCoins">250</div>
+                    <div class="stat-label">Skill Coins</div>
+                    <div class="stat-change positive">+50 this week</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-details">
+                    <div class="stat-value" id="userLevel">15</div>
+                    <div class="stat-label">Current Level</div>
+                    <div class="stat-change positive">+2 levels up</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-details">
+                    <div class="stat-value">3,450</div>
+                    <div class="stat-label">Total XP</div>
+                    <div class="stat-change positive" id="currentXP">1,550 to next level</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤝</div>
+                <div class="stat-details">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Total Swaps</div>
+                    <div class="stat-change positive">+3 this month</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Skills Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>🎯 My Skills</h3>
+                    <button class="btn-small" onclick="editSkills()">Edit</button>
+                </div>
+                <div class="card-content">
+                    <h4>I Can Teach</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag teach">🎸 Guitar</span>
+                        <span class="skill-tag teach">💻 JavaScript</span>
+                        <span class="skill-tag teach">📸 Photography</span>
+                    </div>
+                    <h4 style="margin-top: 1rem;">I Want to Learn</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag learn">🇪🇸 Spanish</span>
+                        <span class="skill-tag learn">🎹 Piano</span>
+                        <span class="skill-tag learn">🎨 UI Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Matches -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>🤖 Top Matches</h3>
+                    <a href="matching.html" class="btn-link">View All</a>
+                </div>
+                <div class="matches-list">
+                    <div class="match-item">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Kim&background=ec4899&color=fff" class="match-avatar" alt="Sarah">
+                        <div class="match-info">
+                            <div class="match-name">Sarah Kim</div>
+                            <div class="match-skills">Spanish ↔ Guitar • 95% Match</div>
+                        </div>
+                        <button class="btn-primary btn-small" onclick="connectMatch('Sarah Kim')">Connect</button>
+                    </div>
+                    <div class="match-item">
+                        <img src="https://ui-avatars.com/api/?name=Mike+Chen&background=10b981&color=fff" class="match-avatar" alt="Mike">
+                        <div class="match-info">
+                            <div class="match-name">Mike Chen</div>
+                            <div class="match-skills">UI Design ↔ Photography • 88% Match</div>
+                        </div>
+                        <button class="btn-primary btn-small" onclick="connectMatch('Mike Chen')">Connect</button>
+                    </div>
+                    <div class="match-item">
+                        <img src="https://ui-avatars.com/api/?name=Emma+Wilson&background=f59e0b&color=fff" class="match-avatar" alt="Emma">
+                        <div class="match-info">
+                            <div class="match-name">Emma Wilson</div>
+                            <div class="match-skills">Piano ↔ JavaScript • 92% Match</div>
+                        </div>
+                        <button class="btn-primary btn-small" onclick="connectMatch('Emma Wilson')">Connect</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Clubs -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>👥 My Clubs</h3>
+                    <a href="clubs.html" class="btn-link">View All</a>
+                </div>
+                <div class="clubs-list">
+                    <div class="club-item">
+                        <div class="club-icon">🎸</div>
+                        <div class="club-info">
+                            <div class="club-name">Music Corner</div>
+                            <div class="club-members">248 members • <span class="live-badge">🔴 LIVE</span></div>
+                        </div>
+                    </div>
+                    <div class="club-item">
+                        <div class="club-icon">💻</div>
+                        <div class="club-info">
+                            <div class="club-name">Web Dev Masters</div>
+                            <div class="club-members">412 members • 156 online</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>📜 Recent Activity</h3>
+                </div>
+                <div class="events-list">
+                    <div class="event-item">
+                        <div class="event-icon">🎉</div>
+                        <div class="event-info">
+                            <div class="event-title">No recent activities yet</div>
+                            <div class="event-time">Start swapping skills!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>🏆 Recent Achievements</h3>
+                    <a href="profile.html" class="btn-link">View All</a>
+                </div>
+                <div class="achievements-grid">
+                    <div class="achievement-badge">
+                        <div class="badge-icon">🔥</div>
+                        <div class="badge-name">7 Day Streak</div>
+                    </div>
+                    <div class="achievement-badge">
+                        <div class="badge-icon">🎸</div>
+                        <div class="badge-name">Music Master</div>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">🌟</div>
+                        <div class="badge-name">Stage Star</div>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">🎓</div>
+                        <div class="badge-name">Teacher Pro</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>⚡ Quick Actions</h3>
+                </div>
+                <div class="card-content">
+                    <button class="btn-primary btn-full" onclick="window.location.href='matching.html'" style="margin-bottom: 0.5rem;">
+                        🤖 Find Matches
+                    </button>
+                    <button class="btn-secondary btn-full" onclick="window.location.href='clubs.html'" style="margin-bottom: 0.5rem;">
+                        👥 Browse Clubs
+                    </button>
+                    <button class="btn-secondary btn-full" onclick="window.location.href='stage.html'">
+                        🎤 Go Live
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Notification Dropdown -->
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h4>Notifications</h4>
+            <button class="btn-small">Mark all read</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">🎉</div>
+                <div class="notification-content">
+                    <div class="notification-text">Welcome to SkillSwap Universe!</div>
+                    <div class="notification-time">Just now</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">🤝</div>
+                <div class="notification-content">
+                    <div class="notification-text">New match available</div>
+                    <div class="notification-time">2 hours ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

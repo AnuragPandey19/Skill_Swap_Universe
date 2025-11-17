@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - SkillSwap Universe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>🌍 SkillSwap</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="matching.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span>AI Matching</span>
+            </a>
+            <a href="clubs.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span>Clubs</span>
+            </a>
+            <a href="stage.html" class="nav-item">
+                <span class="nav-icon">🎤</span>
+                <span>Live Stage</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <span class="nav-icon">👤</span>
+                <span>Profile</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="coin-balance">
+                <span class="coin-icon">🪙</span>
+                <span class="coin-amount" id="sidebarCoins">250</span>
+            </div>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <h1>👤 My Profile</h1>
+            </div>
+            <div class="topbar-right">
+                <button class="btn-primary" onclick="toggleEditMode()">Edit Profile</button>
+                <button class="notification-btn">
+                    <span class="notification-icon">🔔</span>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=6366f1&color=fff" alt="User">
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile Content -->
+        <div class="profile-container">
+            <!-- Profile Header Card -->
+            <div class="profile-header-card">
+                <div class="profile-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                <div class="profile-header-content">
+                    <div class="profile-avatar-large">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=6366f1&color=fff&size=200" alt="Profile" id="profileAvatar">
+                        <button class="avatar-edit-btn" onclick="changeAvatar()">📷</button>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">Priya</h2>
+                        <p id="profileBio">Passionate musician and developer. Love teaching and learning new skills!</p>
+                        <div class="profile-meta">
+                            <span>📍 Dehradun, India</span>
+                            <span>🎂 Joined Nov 2024</span>
+                            <span>⭐ 4.9 Rating</span>
+                        </div>
+                    </div>
+                    <div class="profile-level">
+                        <div class="level-circle">
+                            <div class="level-number" id="userLevel">15</div>
+                        </div>
+                        <div class="level-info">
+                            <div class="level-label">Level</div>
+                            <div class="level-progress">
+                                <div class="level-progress-bar" style="width: 65%"></div>
+                            </div>
+                            <div class="level-xp"><span id="currentXP">3450</span> / 5000 XP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="profile-stats-row">
+                <div class="profile-stat-card">
+                    <div class="stat-icon-large">🪙</div>
+                    <div class="stat-value-large" id="totalCoinsProfile">250</div>
+                    <div class="stat-label-large">Total Coins</div>
+                </div>
+                <div class="profile-stat-card">
+                    <div class="stat-icon-large">🎓</div>
+                    <div class="stat-value-large">12</div>
+                    <div class="stat-label-large">Skills Learned</div>
+                </div>
+                <div class="profile-stat-card">
+                    <div class="stat-icon-large">👨‍🏫</div>
+                    <div class="stat-value-large">8</div>
+                    <div class="stat-label-large">Students Taught</div>
+                </div>
+                <div class="profile-stat-card">
+                    <div class="stat-icon-large">🤝</div>
+                    <div class="stat-value-large">24</div>
+                    <div class="stat-label-large">Total Swaps</div>
+                </div>
+            </div>
+
+            <!-- Main Profile Grid -->
+            <div class="profile-grid">
+                <!-- Skills Section -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h3>🎯 My Skills</h3>
+                        <button class="btn-small" onclick="editSkills()">+ Add Skill</button>
+                    </div>
+                    
+                    <div class="skill-category-profile">
+                        <h4>I Can Teach 🎓</h4>
+                        <div class="skill-pills" id="teachSkills">
+                            <div class="skill-pill-profile teach">
+                                <span>🎸 Guitar</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-pill-profile teach">
+                                <span>💻 JavaScript</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-pill-profile teach">
+                                <span>📸 Photography</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category-profile">
+                        <h4>I Want to Learn 📚</h4>
+                        <div class="skill-pills" id="learnSkills">
+                            <div class="skill-pill-profile learn">
+                                <span>🇪🇸 Spanish</span>
+                                <span class="skill-status">In Progress</span>
+                            </div>
+                            <div class="skill-pill-profile learn">
+                                <span>🎹 Piano</span>
+                                <span class="skill-status">Wishlist</span>
+                            </div>
+                            <div class="skill-pill-profile learn">
+                                <span>🎨 UI Design</span>
+                                <span class="skill-status">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h3>🏆 Achievements</h3>
+                        <span class="achievement-count">12/24 Unlocked</span>
+                    </div>
+                    <div class="achievements-grid-profile">
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">🔥</div>
+                            <div class="achievement-name">7 Day Streak</div>
+                            <div class="achievement-date">Nov 15, 2024</div>
+                        </div>
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">🎸</div>
+                            <div class="achievement-name">Music Master</div>
+                            <div class="achievement-date">Nov 10, 2024</div>
+                        </div>
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">🤝</div>
+                            <div class="achievement-name">Team Player</div>
+                            <div class="achievement-date">Nov 5, 2024</div>
+                        </div>
+                        <div class="achievement-card unlocked">
+                            <div class="achievement-icon">💯</div>
+                            <div class="achievement-name">Perfect Rating</div>
+                            <div class="achievement-date">Nov 1, 2024</div>
+                        </div>
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">🌟</div>
+                            <div class="achievement-name">Stage Star</div>
+                            <div class="achievement-requirement">Perform on stage 5 times</div>
+                        </div>
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">🎓</div>
+                            <div class="achievement-name">Master Teacher</div>
+                            <div class="achievement-requirement">Teach 50 sessions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h3>📜 Recent Activity</h3>
+                    </div>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon earn">🎉</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Earned 50 coins from teaching Guitar</div>
+                                <div class="activity-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon match">🤝</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Matched with Sarah Kim for Spanish ↔ Guitar swap</div>
+                                <div class="activity-time">5 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon club">👥</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Joined Music Corner club</div>
+                                <div class="activity-time">1 day ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon achievement">🏆</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Unlocked "Team Player" achievement</div>
+                                <div class="activity-time">2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio -->
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h3>📁 Portfolio</h3>
+                        <button class="btn-small" onclick="uploadWork()">+ Upload</button>
+                    </div>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">
+                            <div class="portfolio-thumb" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <span style="font-size: 3rem;">🎸</span>
+                            </div>
+                            <div class="portfolio-info">
+                                <div class="portfolio-title">Acoustic Cover - Yesterday</div>
+                                <div class="portfolio-meta">Guitar • 2 weeks ago</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-thumb" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <span style="font-size: 3rem;">💻</span>
+                            </div>
+                            <div class="portfolio-info">
+                                <div class="portfolio-title">React Todo App</div>
+                                <div class="portfolio-meta">JavaScript • 1 month ago</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <span style="font-size: 3rem;">📸</span>
+                            </div>
+                            <div class="portfolio-info">
+                                <div class="portfolio-title">Sunset Photography Series</div>
+                                <div class="portfolio-meta">Photography • 3 weeks ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEditModal()">✕</button>
+            <h2>Edit Profile</h2>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="editName" value="Priya">
+                </div>
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea id="editBio" rows="3">Passionate musician and developer. Love teaching and learning new skills!</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="editLocation" value="Dehradun, India">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+                    <button class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

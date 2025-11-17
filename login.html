@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SkillSwap Universe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="auth-left">
+            <div class="auth-branding">
+                <h1>🌍 SkillSwap Universe</h1>
+                <p>Where Skills Find Their People</p>
+            </div>
+            <div class="auth-features">
+                <div class="auth-feature">
+                    <span class="feature-icon">🪙</span>
+                    <div>
+                        <h3>Skill Coin Economy</h3>
+                        <p>Earn coins by teaching, spend to learn</p>
+                    </div>
+                </div>
+                <div class="auth-feature">
+                    <span class="feature-icon">🤖</span>
+                    <div>
+                        <h3>AI Smart Matching</h3>
+                        <p>Find perfect skill swap partners</p>
+                    </div>
+                </div>
+                <div class="auth-feature">
+                    <span class="feature-icon">🎤</span>
+                    <div>
+                        <h3>Live Performances</h3>
+                        <p>Showcase your talents on stage</p>
+                    </div>
+                </div>
+                <div class="auth-feature">
+                    <span class="feature-icon">👥</span>
+                    <div>
+                        <h3>Join Communities</h3>
+                        <p>Connect with like-minded creators</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Auth Forms -->
+        <div class="auth-right">
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div class="auth-form active" id="loginForm-container">
+                <h2>Welcome Back!</h2>
+                <p class="form-subtitle">Enter your credentials to continue</p>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-remember">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full">Login</button>
+                </form>
+
+                <div class="divider">OR</div>
+
+                <div class="social-login">
+                    <button class="btn-social">
+                        <span>🔵</span> Continue with Google
+                    </button>
+                    <button class="btn-social">
+                        <span>📘</span> Continue with Facebook
+                    </button>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="auth-form" id="signupForm-container">
+                <h2>Create Account</h2>
+                <p class="form-subtitle">Join thousands of skill swappers</p>
+
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="Priya" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupRole">I want to</label>
+                        <select id="signupRole" required>
+                            <option value="">Select your goal...</option>
+                            <option value="both">Both Teach & Learn</option>
+                            <option value="teach">Teach Skills</option>
+                            <option value="learn">Learn Skills</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full">Create Account</button>
+                </form>
+
+                <div class="divider">OR</div>
+
+                <div class="social-login">
+                    <button class="btn-social">
+                        <span>🔵</span> Continue with Google
+                    </button>
+                    <button class="btn-social">
+                        <span>📘</span> Continue with Facebook
+                    </button>
+                </div>
+
+                <p class="terms-text">
+                    By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

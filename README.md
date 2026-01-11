@@ -7,8 +7,12 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=6366F1&center=true&vCenter=true&width=835&lines=The+Future+of+Learning+%F0%9F%93%9A;The+Future+of+Performing+%F0%9F%8E%AD;The+Future+of+Collaborating+%F0%9F%A4%9D" alt="Typing SVG" />
 
 <br/>
+<br/>
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Now-6366f1?style=for-the-badge&logoColor=white)](https://anuragpandey19.github.io/Skill_Swap_Universe/)
+## 🚀 [**LIVE DEMO - CLICK HERE TO EXPLORE!**](https://anuragpandey19.github.io/Skill_Swap_Universe/) 🚀
+
+<br/>
+
 [![GitHub Repo](https://img.shields.io/badge/⭐_Star-Repository-ffd700?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anuragpandey19/Skill_Swap_Universe)
 [![Report Bug](https://img.shields.io/badge/🐛_Report-Bug-ff4444?style=for-the-badge)](https://github.com/anuragpandey19/Skill_Swap_Universe/issues)
 [![Feature Request](https://img.shields.io/badge/✨_Request-Feature-44ff44?style=for-the-badge)](https://github.com/anuragpandey19/Skill_Swap_Universe/issues)
@@ -497,8 +501,6 @@ See the [LICENSE](LICENSE) file for complete details
 [![Repository](https://img.shields.io/badge/Repository-Skill__Swap__Universe-6366f1?style=for-the-badge&logo=github)](https://github.com/anuragpandey19/Skill_Swap_Universe)
 
 <br/>
-
-**🌐 Live Demo:** [https://anuragpandey19.github.io/Skill_Swap_Universe/](https://anuragpandey19.github.io/Skill_Swap_Universe/)
 
 **📂 Project Repo:** [https://github.com/anuragpandey19/Skill_Swap_Universe](https://github.com/anuragpandey19/Skill_Swap_Universe)
 
